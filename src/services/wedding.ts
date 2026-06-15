@@ -21,7 +21,7 @@ export type GuestMessage = {
 export const AUTH_PROVIDER = async () => ({ authenticated: false, role: 'guest' })
 
 export const FETCH_CONTENT = async () => ({
-  coupleNames: 'Boaz & Abigail',
+  coupleNames: 'Boaz & Faith',
   weddingDate: 'December 12, 2026',
   tagline: 'A celebration of covenant, joy, and forever.',
   supportMessage:
