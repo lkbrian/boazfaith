@@ -29,8 +29,8 @@ export function WeddingSite() {
           weddingDate={content?.weddingDate}
           tagline={content?.tagline}
         />
-        <LoveStorySection />
         <EventDetailsSection details={details} />
+        <LoveStorySection />
         <GallerySection images={gallery} onImageClick={setLightboxIndex} />
         <ContactSection />
       </main>

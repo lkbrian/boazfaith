@@ -1,9 +1,7 @@
-import { Heart, MapPin, Sparkles } from 'lucide-react'
+import { Heart, Sparkles } from 'lucide-react'
 
 import { orderOfEvents } from '../../data/wedding'
 import type { EventDetails } from '../../services/wedding'
-import { Button } from '../ui/button'
-import { Card, CardContent } from '../ui/card'
 import { EventCard } from '../shared/EventCard'
 import { Reveal } from '../shared/Reveal'
 import { Section } from '../shared/Section'
@@ -14,7 +12,7 @@ type Props = {
 
 export function EventDetailsSection({ details }: Props) {
   return (
-    <Section id="event-details" title="The Big Day" eyebrow="Ceremony and celebration" dark={false}>
+    <Section id="event-details" title="The Big Day" eyebrow="Ceremony and celebration" dark>
       <div className="grid gap-10 lg:grid-cols-2">
         {/* Left: Ceremony + Reception cards */}
         <div className="grid content-start gap-6">
@@ -43,7 +41,7 @@ export function EventDetailsSection({ details }: Props) {
       </div>
 
       {/* Map */}
-      <Card className="mt-14 overflow-hidden">
+      {/* <Card className="mt-14 overflow-hidden">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
           <iframe
             className="h-80 w-full grayscale"
@@ -60,7 +58,7 @@ export function EventDetailsSection({ details }: Props) {
             </Button>
           </CardContent>
         </div>
-      </Card>
+      </Card> */}
     </Section>
   )
 }

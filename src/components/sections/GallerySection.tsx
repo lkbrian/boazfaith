@@ -8,7 +8,7 @@ type Props = {
 
 export function GallerySection({ images, onImageClick }: Props) {
   return (
-    <Section id="gallery" title="Gallery" eyebrow="Captured moments" dark>
+    <Section id="gallery" title="Gallery" eyebrow="Captured moments" dark={true}>
       <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
         {images.map((image, index) => (
           <button
