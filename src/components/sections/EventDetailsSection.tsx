@@ -40,7 +40,7 @@ export function EventDetailsSection({ details }: Props) {
       {/* Order of Events horizontal timeline */}
       <div className="mt-14">
         <h3 className="mb-14 text-center font-serif text-3xl">Order Of Events</h3>
-        <div className="scroll-thin overflow-x-auto py-4">
+        <div className="scroll-thin overflow-x-auto py-4 h-[325px]">
           <div className="relative mx-auto flex w-max items-start gap-8 px-2">
             <div className="absolute left-0 right-0 top-32.5 h-px bg-purple-600/20" />
             {orderOfEvents.map((event, index) => {
