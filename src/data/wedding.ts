@@ -1,4 +1,4 @@
-import { Camera, Gem, Heart, Music2, Sparkles, Users, Utensils } from 'lucide-react'
+import { BookOpen, Cake, DoorOpen, Gift, Heart, Mic2, Music2, Sparkles, Users, Utensils } from 'lucide-react'
 
 export const navItems = [
   ['Home', '#home'],
@@ -27,13 +27,64 @@ export const loveStory = [
 ]
 
 export const orderOfEvents = [
-  ['2:00 PM', 'Guest Arrival', Users],
-  ['2:30 PM', 'Ceremony', Heart],
-  ['3:30 PM', 'Photos', Camera],
-  ['4:30 PM', 'Cocktail Hour', Sparkles],
-  ['5:30 PM', 'Reception', Music2],
-  ['6:30 PM', 'Dinner', Utensils],
-  ['8:00 PM', 'Cake Cutting', Gem],
-  ['8:30 PM', 'First Dance', Music2],
-  ['9:00 PM', 'Celebration', Sparkles],
+  {
+    time: '08:30 - 09:00 AM',
+    title: 'Arrival of Guests',
+    description: 'Guests are welcomed and seated warmly.',
+    icon: Users,
+  },
+  {
+    time: '09:00 - 09:15 AM',
+    title: 'Hymn & Opening Prayers',
+    description: 'The service opens in worship and prayer.',
+    icon: Music2,
+  },
+  {
+    time: '09:15 - 09:45 AM',
+    title: 'Bridal Team Entrance',
+    description: 'The bridal party makes its grand entrance.',
+    icon: Sparkles,
+  },
+  {
+    time: '09:15 - 10:45 AM',
+    title: 'Exchange of Vows & Sermon',
+    description: 'Vows are exchanged before God and family.',
+    icon: Heart,
+  },
+  {
+    time: '10:45 - 11:00 AM',
+    title: 'End of Service & Closing Prayers',
+    description: 'The ceremony closes with a final blessing.',
+    icon: BookOpen,
+  },
+  {
+    time: '11:00 - 01:15 PM',
+    title: 'Lunch and Photoshoot',
+    description: 'Guests enjoy lunch while photos are taken.',
+    icon: Utensils,
+  },
+  {
+    time: '01:15 - 02:00 PM',
+    title: 'Reception Entrance',
+    description: 'The newlyweds make their reception entrance.',
+    icon: DoorOpen,
+  },
+  {
+    time: '02:00 - 03:30 PM',
+    title: 'Family Introductions & Speeches',
+    description: 'Families are introduced and share heartfelt speeches.',
+    icon: Mic2,
+  },
+  {
+    time: '03:30 - 04:00 PM',
+    title: 'Cake Cutting',
+    description: 'The couple cuts the wedding cake together.',
+    icon: Cake,
+  },
+  {
+    time: '04:00 - 04:30 PM',
+    title: 'Gifts & Closing Prayers',
+    description: 'Gifts are presented and prayers close the day.',
+    icon: Gift,
+  },
 ] as const

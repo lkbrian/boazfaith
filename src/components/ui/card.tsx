@@ -12,7 +12,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-lg border border-[#F8F5EF]/10 bg-[#F8F5EF]/[0.055] py-(--card-spacing) text-sm text-[#F8F5EF] shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 [--card-spacing:--spacing(4)] hover:border-[#DDB665]/35 hover:bg-[#F8F5EF]/[0.075] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(3)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-lg *:[img:last-child]:rounded-b-lg",
+        "group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-lg border border-black/10 bg-white/80 py-(--card-spacing) text-sm text-black shadow-[0_24px_80px_rgba(153,0,255,0.1)] backdrop-blur-xl transition duration-300 [--card-spacing:--spacing(4)] hover:border-purple-600/35 hover:bg-white has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(3)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-lg *:[img:last-child]:rounded-b-lg",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "font-serif text-2xl leading-snug font-medium text-[#F8F5EF] group-data-[size=sm]/card:text-xl",
+        "font-serif text-2xl leading-snug font-medium text-purple-700 group-data-[size=sm]/card:text-xl",
         className
       )}
       {...props}
@@ -50,7 +50,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-sm leading-6 text-[#B9B4AA]", className)}
+      className={cn("text-sm leading-6 text-black/60", className)}
       {...props}
     />
   )
@@ -84,7 +84,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center rounded-b-lg border-t border-[#F8F5EF]/10 bg-black/15 p-(--card-spacing)",
+        "flex items-center rounded-b-lg border-t border-black/10 bg-black/5 p-(--card-spacing)",
         className
       )}
       {...props}

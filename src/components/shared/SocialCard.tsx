@@ -1,26 +1,31 @@
-import { Camera, Heart, Music2, X } from 'lucide-react'
+import { FaFacebookF, FaInstagram, FaTiktok, FaXTwitter } from 'react-icons/fa6'
 
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
+import { Card, CardContent } from '../ui/card'
 
 export function SocialCard() {
   const socials = [
-    ['Instagram', Camera, 'INSTAGRAM_URL'],
-    ['Facebook', Heart, 'FACEBOOK_URL'],
-    ['TikTok', Music2, 'TIKTOK_URL'],
-    ['X', X, 'X_URL'],
+    ['Instagram', FaInstagram, '#'],
+    ['Facebook', FaFacebookF, '#'],
+    ['TikTok', FaTiktok, '#'],
+    ['X', FaXTwitter, '#'],
   ] as const
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Social Media</CardTitle>
-      </CardHeader>
-      <CardContent className="grid gap-3">
-        {socials.map(([label, Icon, url]) => (
-          <a className="flex items-center gap-3 rounded-md border border-white/10 bg-black/20 p-3 text-[#B9B4AA] transition hover:border-[#DDB665]/50 hover:text-[#DDB665]" href="#" key={label}>
-            <Icon className="h-4 w-4" /> {label} <span className="ml-auto text-xs">{url}</span>
-          </a>
-        ))}
+      <CardContent className="flex items-center justify-between gap-3">
+        <p className="text-xs font-medium uppercase tracking-wide text-black">Follow Along</p>
+        <div className="flex items-center gap-2">
+          {socials.map(([label, Icon, url]) => (
+            <a
+              aria-label={label}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black/70 transition hover:border-purple-600/50 hover:bg-purple-600/10 hover:text-purple-600"
+              href={url}
+              key={label}
+            >
+              <Icon className="h-3.5 w-3.5" />
+            </a>
+          ))}
+        </div>
       </CardContent>
     </Card>
   )

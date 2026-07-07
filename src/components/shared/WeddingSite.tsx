@@ -15,12 +15,12 @@ export function WeddingSite() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#F8F5EF]">
+    <div className="min-h-screen bg-white text-black">
       <NavBar />
 
       <main>
         {error && (
-          <div className="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg border border-[#DDB665]/40 bg-[#11100E] p-4 text-sm text-[#F8F5EF] shadow-2xl">
+          <div className="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg border border-purple-600/40 bg-white p-4 text-sm text-black shadow-2xl">
             {error}
           </div>
         )}

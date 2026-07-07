@@ -12,7 +12,7 @@ export function GallerySection({ images, onImageClick }: Props) {
       <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
         {images.map((image, index) => (
           <button
-            className="mb-5 block w-full break-inside-avoid h-110  p-2 relative border  shadow-lg hover: cursor-pointer border-[#DDB665]/30"
+            className="mb-5 block w-full break-inside-avoid h-110  p-2 relative border  shadow-lg hover: cursor-pointer border-purple-600/30"
             key={image.src}
             onClick={() => onImageClick(index)}
             type="button"

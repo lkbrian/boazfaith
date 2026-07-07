@@ -14,7 +14,7 @@ export type GalleryImage = {
 export const FETCH_CONTENT = async () => ({
   coupleNames: 'Boaz & Faith',
   weddingDate: 'August 8, 2026',
-  tagline: 'A celebration of covenant, joy, and forever.',
+  tagline: 'A celebration of covenant, joy, and forever — two families, one love, and a lifetime of memories waiting to be written together.',
 })
 
 export const FETCH_GALLERY = async (): Promise<GalleryImage[]> => [
@@ -27,15 +27,15 @@ export const FETCH_GALLERY = async (): Promise<GalleryImage[]> => [
 
 export const GET_EVENT_DETAILS = async () => ({
   ceremony: {
-    venue: 'The Grand Garden Chapel',
+    venue: 'ACK Holy Trinity',
     date: 'August 8, 2026',
-    time: '2:00 PM',
-    address: 'CEREMONY_DETAILS, Nairobi',
+    time: '9:00 AM',
+    address: 'Kamwago',
   },
   reception: {
-    venue: 'The Imperial Ballroom',
+    venue: 'Samich Resort',
     date: 'August 8, 2026',
-    time: '5:30 PM',
-    address: 'RECEPTION_DETAILS, Nairobi',
+    time: '2:00 PM',
+    address: 'Kipkenyo Eldoret',
   },
 })

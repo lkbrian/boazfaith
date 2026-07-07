@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -7,7 +7,20 @@
 
 @theme {
   --font-serif: 'Cormorant Garamond', serif;
-  --font-sans: 'Outfit', sans-serif;
+  --font-sans: 'League Spartan', sans-serif;
+  --font-nav: 'Outfit', sans-serif;
+
+  --color-purple-50: #f5e5ff;
+  --color-purple-100: #ebccff;
+  --color-purple-200: #d699ff;
+  --color-purple-300: #c266ff;
+  --color-purple-400: #ad33ff;
+  --color-purple-500: #9900ff;
+  --color-purple-600: #7a00cc;
+  --color-purple-700: #5c0099;
+  --color-purple-800: #3d0066;
+  --color-purple-900: #1f0033;
+  --color-purple-950: #150024;
 }
 
 * {
@@ -20,9 +33,9 @@ html {
 
 body {
   margin: 0;
-  background: #0A0A0A;
-  color: #F8F5EF;
-  font-family: 'Outfit', sans-serif;
+  background: #FFFFFF;
+  color: #000000;
+  font-family: 'League Spartan', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -35,18 +48,39 @@ textarea {
   font: inherit;
 }
 
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #ad33ff33 transparent;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background-color: #ad33ff33;
+  border-radius: 9999px;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #ad33ff66;
+}
+
 img {
   max-width: 100%;
 }
 
 ::selection {
-  background: rgba(221, 182, 101, 0.35);
-  color: #F8F5EF;
+  background: #ebccff;
+  color: #000000;
 }
 
 @theme inline {
   --font-heading: var(--font-serif);
-  --font-sans: 'Outfit', sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -88,38 +122,38 @@ img {
 }
 
 :root {
-  --background: #0A0A0A;
-  --foreground: #F8F5EF;
-  --card: rgb(248 245 239 / 0.055);
-  --card-foreground: #F8F5EF;
-  --popover: #11100E;
-  --popover-foreground: #F8F5EF;
-  --primary: #DDB665;
-  --primary-foreground: #1E1C18;
-  --secondary: rgb(248 245 239 / 0.08);
-  --secondary-foreground: #F8F5EF;
-  --muted: rgb(248 245 239 / 0.08);
-  --muted-foreground: #B9B4AA;
-  --accent: rgb(221 182 101 / 0.16);
-  --accent-foreground: #DDB665;
+  --background: #FFFFFF;
+  --foreground: #000000;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  --primary: var(--color-purple-600);
+  --primary-foreground: #FFFFFF;
+  --secondary: rgb(0 0 0 / 0.05);
+  --secondary-foreground: #000000;
+  --muted: rgb(0 0 0 / 0.05);
+  --muted-foreground: rgb(0 0 0 / 0.6);
+  --accent: var(--color-purple-50);
+  --accent-foreground: var(--color-purple-700);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgb(248 245 239 / 0.12);
-  --input: rgb(248 245 239 / 0.14);
-  --ring: rgb(221 182 101 / 0.48);
+  --border: rgb(0 0 0 / 0.12);
+  --input: rgb(0 0 0 / 0.14);
+  --ring: rgb(153 0 255 / 0.45);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.5rem;
-  --sidebar: #0A0A0A;
-  --sidebar-foreground: #F8F5EF;
-  --sidebar-primary: #DDB665;
-  --sidebar-primary-foreground: #1E1C18;
-  --sidebar-accent: rgb(221 182 101 / 0.16);
-  --sidebar-accent-foreground: #DDB665;
-  --sidebar-border: rgb(248 245 239 / 0.12);
-  --sidebar-ring: rgb(221 182 101 / 0.48);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: var(--color-purple-600);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--color-purple-50);
+  --sidebar-accent-foreground: var(--color-purple-700);
+  --sidebar-border: rgb(0 0 0 / 0.12);
+  --sidebar-ring: rgb(153 0 255 / 0.45);
 }
 
 .dark {
