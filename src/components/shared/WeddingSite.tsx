@@ -10,6 +10,8 @@ import { HeroSection } from '../sections/HeroSection'
 import { LoveStorySection } from '../sections/LoveStorySection'
 import { NavBar } from '../sections/NavBar'
 import { SiteFooter } from '../sections/SiteFooter'
+import { BackToTopButton } from './BackToTopButton'
+import { FloatingCountdown } from './FloatingCountdown'
 
 export function WeddingSite() {
   const { content, gallery, details, error } = useWeddingData()
@@ -46,6 +48,9 @@ export function WeddingSite() {
         onNext={() => setLightboxIndex((i) => ((i ?? 0) + 1) % gallery.length)}
         onPrev={() => setLightboxIndex((i) => ((i ?? 0) - 1 + gallery.length) % gallery.length)}
       />
+
+      <BackToTopButton />
+      <FloatingCountdown />
     </div>
   )
 }

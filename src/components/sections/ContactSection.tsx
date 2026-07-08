@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
 
 export function ContactSection() {
   return (
-    <Section id="contact" title="Stay Connected" eyebrow="Contact" dark={false}>
+    <Section id="contact" title="Stay Connected" eyebrow="Contact" dark={true}>
       <div className="mx-auto grid max-w-xl gap-6">
         <Tabs defaultValue="form">
           <TabsList className="mx-auto">

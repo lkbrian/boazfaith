@@ -44,7 +44,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card>
+    <Card className='hover:border-none'>
       <CardHeader>
         <CardTitle>Send Us A Message</CardTitle>
         <CardDescription>Questions about the big day? Drop us a note and we'll reply soon.</CardDescription>
