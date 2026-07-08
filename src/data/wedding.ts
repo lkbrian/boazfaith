@@ -9,6 +9,13 @@ export const navItems = [
   ['Contact', '#contact'],
 ] as const
 
+export const weddingDayMessages = [
+  "Today's The Day!",
+  'We Do, Today!',
+  'The Big Day Is Here!',
+  'Forever Starts Today',
+] as const
+
 export const loveStory = [
   {
     chapter: 'Chapter One',

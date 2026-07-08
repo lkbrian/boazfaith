@@ -1,9 +1,11 @@
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { CalendarDays } from 'lucide-react'
 
+import { weddingDayMessages } from '../../data/wedding'
 import { Button } from '../ui/button'
 import { fadeUp } from '../shared/Reveal'
 import { useCountdown } from '../shared/useCountdown'
+import { useRotatingIndex } from '../shared/useRotatingIndex'
 
 type Props = {
   coupleNames?: string
@@ -16,6 +18,8 @@ const scrollTo = (href: string) =>
 
 export function HeroSection({ coupleNames, weddingDate, tagline }: Props) {
   const countdown = useCountdown('2026-08-08T14:00:00+03:00')
+  const isToday = Object.values(countdown).every((value) => value === 0)
+  const messageIndex = useRotatingIndex(weddingDayMessages.length, 60000, isToday)
 
   return (
     <section id="home" className="relative h-[95svh] overflow-hidden ">
@@ -52,19 +56,34 @@ export function HeroSection({ coupleNames, weddingDate, tagline }: Props) {
       {/* Countdown */}
       <div className="absolute inset-x-0 bottom-0">
         <div className="mx-auto flex items-start justify-center rounded-t-2xl border border-purple-400/20 bg-purple-950 px-6  lg:px-12 w-fit py-3 gap-4">
-          {Object.entries(countdown).map(([label, value], index) => (
-            <div className="flex items-start" key={label}>
-              {index > 0 && (
-                <span className="font-serif text-4xl text-purple-200 [text-shadow:0_0_20px_rgba(153,0,255,0.65)] sm:text-5xl">:</span>
-              )}
-              <div className="px-3 text-center">
-                <div className="font-serif text-4xl text-purple-200 [text-shadow:0_0_20px_rgba(153,0,255,0.65)] sm:text-5xl">
-                  {String(value).padStart(2, '0')}
+          {isToday ? (
+            <AnimatePresence mode="wait">
+              <motion.p
+                animate={{ opacity: 1, y: 0 }}
+                className="font-serif text-3xl text-purple-200 [text-shadow:0_0_20px_rgba(153,0,255,0.65)] sm:text-4xl"
+                exit={{ opacity: 0, y: -8 }}
+                initial={{ opacity: 0, y: 8 }}
+                key={messageIndex}
+                transition={{ duration: 0.35 }}
+              >
+                {weddingDayMessages[messageIndex]}
+              </motion.p>
+            </AnimatePresence>
+          ) : (
+            Object.entries(countdown).map(([label, value], index) => (
+              <div className="flex items-start" key={label}>
+                {index > 0 && (
+                  <span className="font-serif text-4xl text-purple-200 [text-shadow:0_0_20px_rgba(153,0,255,0.65)] sm:text-5xl">:</span>
+                )}
+                <div className="px-3 text-center">
+                  <div className="font-serif text-4xl text-purple-200 [text-shadow:0_0_20px_rgba(153,0,255,0.65)] sm:text-5xl">
+                    {String(value).padStart(2, '0')}
+                  </div>
+                  <div className="mt-2 text-[10px] uppercase tracking-[0.2em] text-purple-100/70">{label}</div>
                 </div>
-                <div className="mt-2 text-[10px] uppercase tracking-[0.2em] text-purple-100/70">{label}</div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </section>
