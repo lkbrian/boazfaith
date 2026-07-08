@@ -20,11 +20,11 @@ export function EventDetailsSection({ details }: Props) {
     setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 8)
   }
 
-  const handleNudgeClick = () => {
-    const el = timelineRef.current
-    if (!el) return
-    el.scrollTo({ left: atEnd ? 0 : el.scrollWidth, behavior: 'smooth' })
-  }
+  // const handleNudgeClick = () => {
+  //   const el = timelineRef.current
+  //   if (!el) return
+  //   el.scrollTo({ left: atEnd ? 0 : el.scrollWidth, behavior: 'smooth' })
+  // }
 
   return (
     <Section id="event-details" title="The Big Day" eyebrow="Ceremony and celebration" dark>
