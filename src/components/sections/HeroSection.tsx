@@ -18,11 +18,11 @@ export function HeroSection({ coupleNames, weddingDate, tagline }: Props) {
   const countdown = useCountdown('2026-08-08T14:00:00+03:00')
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative h-[95svh] overflow-hidden ">
       <img alt="Wedding hero" className="absolute inset-0 h-full w-full object-cover" src="/hero.jpeg" />
       <div className="absolute inset-0 bg-black/60" />
 
-      <div className="relative flex min-h-screen flex-col items-center justify-center px-5 pb-36 pt-28 text-center">
+      <div className="relative flex h-full flex-col items-center justify-center px-5 pb-36 pt-28 text-center">
         <motion.div animate="show" initial="hidden" variants={fadeUp}>
           <p className="mb-4 text-sm uppercase tracking-[0.45rem]  text-purple-300">You are invited</p>
           <h1 className="font-serif text-6xl font-medium leading-none text-white sm:text-7xl lg:text-9xl">

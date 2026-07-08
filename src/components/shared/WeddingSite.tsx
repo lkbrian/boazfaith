@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { useWeddingData } from '../../hooks/useWeddingData'
 import { ContactSection } from '../sections/ContactSection'
+import { ContributionSection } from '../sections/ContributionSection'
 import { EventDetailsSection } from '../sections/EventDetailsSection'
 import { GalleryLightbox } from '../sections/GalleryLightbox'
 import { GallerySection } from '../sections/GallerySection'
@@ -32,6 +33,7 @@ export function WeddingSite() {
         <EventDetailsSection details={details} />
         <LoveStorySection />
         <GallerySection images={gallery} onImageClick={setLightboxIndex} />
+        <ContributionSection />
         <ContactSection />
       </main>
 

@@ -18,11 +18,9 @@ export const FETCH_CONTENT = async () => ({
 })
 
 export const FETCH_GALLERY = async (): Promise<GalleryImage[]> => [
-  { src: '/love_one.jpeg', tall: true, position: 'center' },
   { src: '/love_two.jpeg', tall: true, position: 'center' },
+  { src: '/hero.jpeg', tall: true, position: 'center' },
   { src: '/love_three.jpeg', tall: true, position: 'center' },
-  { src: '/love_four.jpeg', tall: true, position: 'center' },
-  { src: '/love_five.jpeg', tall: true, position: 'center' },
 ]
 
 export const GET_EVENT_DETAILS = async () => ({

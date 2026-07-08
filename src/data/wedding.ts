@@ -5,6 +5,7 @@ export const navItems = [
   ['Event Details', '#event-details'],
   ['Gallery', '#gallery'],
   ['Love Story', '#love-story'],
+  ['Contribution', '#contribution'],
   ['Contact', '#contact'],
 ] as const
 
