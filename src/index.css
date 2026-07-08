@@ -70,6 +70,16 @@ textarea {
   background-color: #ad33ff66;
 }
 
+@keyframes bounce-left {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-8px); }
+}
+
+@keyframes bounce-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
 img {
   max-width: 100%;
 }

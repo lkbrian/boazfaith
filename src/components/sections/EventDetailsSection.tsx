@@ -1,5 +1,6 @@
 
-import { Church, PartyPopper } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { Church, MoveLeft, MoveRight, PartyPopper } from 'lucide-react'
 import { orderOfEvents } from '../../data/wedding'
 import type { EventDetails } from '../../services/wedding'
 import { Reveal } from '../shared/Reveal'
@@ -10,6 +11,21 @@ type Props = {
 }
 
 export function EventDetailsSection({ details }: Props) {
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const [atEnd, setAtEnd] = useState(false)
+
+  const handleScroll = () => {
+    const el = timelineRef.current
+    if (!el) return
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 8)
+  }
+
+  const handleNudgeClick = () => {
+    const el = timelineRef.current
+    if (!el) return
+    el.scrollTo({ left: atEnd ? 0 : el.scrollWidth, behavior: 'smooth' })
+  }
+
   return (
     <Section id="event-details" title="The Big Day" eyebrow="Ceremony and celebration" dark>
       <div className="grid gap-10 text-center sm:grid-cols-2 sm:divide-x sm:divide-black/10">
@@ -38,9 +54,19 @@ export function EventDetailsSection({ details }: Props) {
       </div>
 
       {/* Order of Events horizontal timeline */}
-      <div className="mt-14">
+      <div className="relative mt-14">
         <h3 className="mb-14 text-center font-serif text-3xl">Order Of Events</h3>
-        <div className="scroll-thin overflow-x-auto py-4 h-[325px]">
+
+        <button
+          aria-label={atEnd ? 'Scroll back to start' : 'Scroll to see more events'}
+          className={`absolute right-0 top-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-purple-500/40 bg-white text-purple-600 shadow-[0_8px_24px_rgba(153,0,255,0.3)] transition hover:border-purple-600 ${atEnd ? 'animate-[bounce-left_1.6s_ease-in-out_infinite]' : 'animate-[bounce-right_1.6s_ease-in-out_infinite]'}`}
+          // onClick={handleNudgeClick}
+          type="button"
+        >
+          {atEnd ? <MoveLeft className="h-5 w-5" /> : <MoveRight className="h-5 w-5" />}
+        </button>
+
+        <div className="scroll-thin overflow-x-auto py-4 h-[325px]" onScroll={handleScroll} ref={timelineRef}>
           <div className="relative mx-auto flex w-max items-start gap-8 px-2">
             <div className="absolute left-0 right-0 top-32.5 h-px bg-purple-600/20" />
             {orderOfEvents.map((event, index) => {
