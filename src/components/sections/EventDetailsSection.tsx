@@ -1,10 +1,14 @@
 
 import { useRef, useState } from 'react'
-import { Church, MoveLeft, MoveRight, PartyPopper } from 'lucide-react'
+import { Church, Link as LinkIcon, MoveLeft, MoveRight, PartyPopper } from 'lucide-react'
 import { orderOfEvents } from '../../data/wedding'
 import type { EventDetails } from '../../services/wedding'
 import { Reveal } from '../shared/Reveal'
 import { Section } from '../shared/Section'
+import { Button } from '../ui/button'
+
+const CEREMONY_MAP_URL = 'https://maps.app.goo.gl/kYqYkmLSDaSonsz89?g_st=ac'
+const RECEPTION_MAP_URL = 'https://maps.app.goo.gl/hTs12g8bF3F6ap6P6?g_st=iw'
 
 type Props = {
   details: { ceremony: EventDetails; reception: EventDetails } | null
@@ -39,6 +43,11 @@ export function EventDetailsSection({ details }: Props) {
           <p className="mt-1 text-sm uppercase tracking-wide text-black/60">From {details?.ceremony.time ?? '9:00 AM'}</p>
 
           {/* <p className="mt-1 text-sm italic text-black/50">{details?.ceremony.address}</p> */}
+          <Button asChild className="mt-4" size="sm" variant="outline">
+            <a href={CEREMONY_MAP_URL} rel="noreferrer" target="_blank">
+              <LinkIcon className="h-4 w-4" /> Location
+            </a>
+          </Button>
         </div>
         <div>
           <p className="flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-purple-600">
@@ -50,6 +59,11 @@ export function EventDetailsSection({ details }: Props) {
           <p className="mt-1 text-sm uppercase tracking-wide text-black/60">From {details?.reception.time ?? '2:00 PM'}</p>
 
           {/* <p className="mt-1 text-sm italic text-black/50">{details?.reception.address}</p> */}
+          <Button asChild className="mt-4" size="sm" variant="outline">
+            <a href={RECEPTION_MAP_URL} rel="noreferrer" target="_blank">
+              <LinkIcon className="h-4 w-4" /> Location
+            </a>
+          </Button>
         </div>
       </div>
 
