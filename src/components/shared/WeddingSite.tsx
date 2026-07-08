@@ -31,9 +31,9 @@ export function WeddingSite() {
           tagline={content?.tagline}
         />
         <EventDetailsSection details={details} />
-        <LoveStorySection />
-        <GallerySection images={gallery} onImageClick={setLightboxIndex} />
         <ContributionSection />
+        <GallerySection images={gallery} onImageClick={setLightboxIndex} />
+        <LoveStorySection />
         <ContactSection />
       </main>
 

@@ -3,9 +3,9 @@ import { BookOpen, Cake, DoorOpen, Gift, Heart, Mic2, Music2, Sparkles, Users, U
 export const navItems = [
   ['Home', '#home'],
   ['Event Details', '#event-details'],
+  ['Contribution', '#contribution'],
   ['Gallery', '#gallery'],
   ['Love Story', '#love-story'],
-  ['Contribution', '#contribution'],
   ['Contact', '#contact'],
 ] as const
 
