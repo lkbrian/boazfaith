@@ -8,7 +8,7 @@ import { Section } from '../shared/Section'
 import { Button } from '../ui/button'
 
 const CEREMONY_MAP_URL = 'https://maps.app.goo.gl/kYqYkmLSDaSonsz89?g_st=ac'
-const RECEPTION_MAP_URL = 'https://maps.app.goo.gl/hTs12g8bF3F6ap6P6?g_st=iw'
+// const RECEPTION_MAP_URL = 'https://maps.app.goo.gl/hTs12g8bF3F6ap6P6?g_st=iw'
 
 type Props = {
   details: { ceremony: EventDetails; reception: EventDetails } | null
@@ -58,12 +58,7 @@ export function EventDetailsSection({ details }: Props) {
           <p className="mt-2 text-lg font-medium text-black">{details?.reception.address ?? 'RECEPTION_VENUE'}</p>
           <p className="mt-1 text-sm uppercase tracking-wide text-black/60">From {details?.reception.time ?? '2:00 PM'}</p>
 
-          {/* <p className="mt-1 text-sm italic text-black/50">{details?.reception.address}</p> */}
-          <Button asChild className="mt-4" size="sm" variant="outline">
-            <a href={RECEPTION_MAP_URL} rel="noreferrer" target="_blank">
-              <LinkIcon className="h-4 w-4" /> Location
-            </a>
-          </Button>
+          <p className="mt-4 text-sm font-semibold text-purple-600">Reception to follow from 2pm</p>
         </div>
       </div>
 
@@ -73,7 +68,7 @@ export function EventDetailsSection({ details }: Props) {
 
         <button
           aria-label={atEnd ? 'Scroll back to start' : 'Scroll to see more events'}
-          className={`absolute right-0 top-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-purple-500/40 bg-white text-purple-600 shadow-[0_8px_24px_rgba(153,0,255,0.3)] transition hover:border-purple-600 ${atEnd ? 'animate-[bounce-left_1.6s_ease-in-out_infinite]' : 'animate-[bounce-right_1.6s_ease-in-out_infinite]'}`}
+          className={`absolute right-0 top-0 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-purple-500/40 bg-white text-purple-600 shadow-[0_8px_24px_rgba(153,0,255,0.3)] transition hover:border-purple-600 ${atEnd ? 'animate-[bounce-left_2.8s_ease-in-out_infinite]' : 'animate-[bounce-right_2.8s_ease-in-out_infinite]'}`}
           // onClick={handleNudgeClick}
           type="button"
         >

@@ -22,12 +22,12 @@ export function FloatingCountdown() {
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           <motion.div
-            animate={{ y: [0, -8, 0] }}
-            className="flex items-center gap-3 rounded-br-[2.5rem] rounded-tl-[2rem] rounded-bl-[2.5rem] bg-white px-5 py-1"
+            // animate={{ y: [0, -8, 0] }}
+            className="flex items-center gap-3 rounded-br-[2.5rem] rounded-tl-[2rem] rounded-bl-[2.5rem] bg-white px-5 py-1 min-w-[235px]"
             style={{
               boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset',
             }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+          // transition={{ duration: 10.2, repeat: Infinity, ease: 'easeInOut' }}
           >
             {isToday ? (
               <AnimatePresence mode="wait">
