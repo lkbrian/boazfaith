@@ -54,11 +54,12 @@ export function EventDetailsSection({ details }: Props) {
             <PartyPopper className="" size={24} />
             <span className='mt-2 font-semibold'>Reception</span>
           </p>
-          <p className="mt-4 font-serif text-4xl text-black sm:text-5xl">{details?.reception.venue ?? 'August 8, 2026'}</p>
-          <p className="mt-2 text-lg font-medium text-black">{details?.reception.address ?? 'RECEPTION_VENUE'}</p>
+          <p className="mt-4 font-serif text-4xl text-black sm:text-5xl">Reception to follow</p>
+          {/* <p className="mt-4 font-serif text-4xl text-black sm:text-5xl">{details?.reception.venue ?? 'August 8, 2026'}</p> */}
+          {/* <p className="mt-2 text-lg font-medium text-black">{details?.reception.address ?? 'RECEPTION_VENUE'}</p> */}
           <p className="mt-1 text-sm uppercase tracking-wide text-black/60">From {details?.reception.time ?? '2:00 PM'}</p>
 
-          <p className="mt-4 text-sm font-semibold text-purple-600">Reception to follow from 2pm</p>
+          <p className="mt-4 text-md text-purple-600">tulia lokeshen inakam</p>
         </div>
       </div>
 

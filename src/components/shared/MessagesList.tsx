@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight, MessageCircleHeart } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 import { FETCH_CONTACT_MESSAGES, type ContactMessage } from '../../services/contact'
 import { Button } from '../ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 
 const PAGE_SIZE = 10
 
@@ -19,20 +18,24 @@ export function MessagesList() {
 
   useEffect(() => {
     let active = true
-    setLoading(true)
 
-    FETCH_CONTACT_MESSAGES(page, PAGE_SIZE)
-      .then(({ messages: data, count: total }) => {
+    async function loadMessages() {
+      if (!active) return
+      setLoading(true)
+
+      try {
+        const { messages: data, count: total } = await FETCH_CONTACT_MESSAGES(page, PAGE_SIZE)
         if (!active) return
         setMessages(data)
         setCount(total)
-      })
-      .catch((currentError) => {
+      } catch (currentError) {
         if (active) setError(currentError instanceof Error ? currentError.message : 'Unable to load messages.')
-      })
-      .finally(() => {
+      } finally {
         if (active) setLoading(false)
-      })
+      }
+    }
+
+    void loadMessages()
 
     return () => {
       active = false
@@ -42,68 +45,70 @@ export function MessagesList() {
   const totalPages = Math.max(1, Math.ceil(count / PAGE_SIZE))
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Messages Of Love</CardTitle>
-        <CardDescription>Blessings and well wishes shared by family and friends for the big day.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        {loading && <p className="py-10 text-center text-sm text-black/50">Loading messages…</p>}
+    <div className="space-y-6">
 
-        {!loading && error && <p className="py-10 text-center text-sm text-red-600">{error}</p>}
 
-        {!loading && !error && messages.length === 0 && (
-          <div className="flex flex-col items-center gap-3 py-10 text-center">
-            <MessageCircleHeart className="h-8 w-8 text-purple-600/60" />
-            <p className="text-black/60">No messages yet — be the first to send your wishes.</p>
-          </div>
-        )}
+      {loading && <p className="py-10 text-center text-sm text-slate-500">Loading messages…</p>}
 
-        {!loading && !error && messages.length > 0 && (
-          <div className="grid gap-4">
-            <div className="divide-y divide-black/10 rounded-lg border border-black/10">
-              {messages.map((entry) => (
-                <div className="grid gap-1.5 p-4" key={`${entry.email_address}-${entry.created_at}`}>
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <p className="font-serif text-lg text-purple-700">{entry.full_name}</p>
-                      <p className="text-xs text-black/40">{entry.email_address}</p>
-                    </div>
-                    <p className="text-xs uppercase tracking-wide text-black/40">{formatDate(entry.created_at)}</p>
+      {!loading && error && <p className="py-10 text-center text-sm text-red-600">{error}</p>}
+
+      {!loading && !error && messages.length === 0 && (
+        <div className="flex flex-col items-center gap-3 py-10 text-center">
+          <MessageCircleHeart className="h-8 w-8 text-purple-600/60" />
+          <p className="text-slate-500">No messages yet — be the first to send your wishes.</p>
+        </div>
+      )}
+
+      {!loading && !error && messages.length > 0 && (
+        <>
+          <div className="columns-1 gap-6 sm:columns-2 xl:columns-3">
+            {messages.map((entry) => (
+              <article
+                className="mb-6 break-inside-avoid-column rounded-sm bg-white p-2 "
+                key={`${entry.email_address}-${entry.created_at}`}
+                style={{
+                  boxShadow: "rgba(17, 17, 26, 0.1) 0px 0px 16px;"
+                }}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="font-serif text-xl text-purple-600 font-bold">{entry.full_name}</p>
+                    <p className="text-sm text-slate-500">{entry.email_address}</p>
                   </div>
-                  <p className="text-sm leading-6 text-black/70">{entry.message}</p>
+                  <p className="text-xs uppercase tracking-wide text-slate-400">{formatDate(entry.created_at)}</p>
                 </div>
-              ))}
-            </div>
-
-            {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-3">
-                <Button
-                  aria-label="Previous page"
-                  disabled={page === 0}
-                  onClick={() => setPage((p) => Math.max(0, p - 1))}
-                  size="icon-sm"
-                  variant="outline"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-                <p className="text-xs text-black/50">
-                  Page {page + 1} of {totalPages}
-                </p>
-                <Button
-                  aria-label="Next page"
-                  disabled={page + 1 >= totalPages}
-                  onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-                  size="icon-sm"
-                  variant="outline"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </div>
-            )}
+                <p className="mt-2 text-sm leading-7 text-slate-700">"{entry.message}"</p>
+              </article>
+            ))}
           </div>
-        )}
-      </CardContent>
-    </Card>
+
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-3 pt-4">
+              <Button
+                aria-label="Previous page"
+                disabled={page === 0}
+                onClick={() => setPage((p) => Math.max(0, p - 1))}
+                size="icon-sm"
+                variant="outline"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <p className="text-xs text-slate-500">
+                Page {page + 1} of {totalPages}
+              </p>
+              <Button
+                aria-label="Next page"
+                disabled={page + 1 >= totalPages}
+                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                size="icon-sm"
+                variant="outline"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+        </>
+      )}
+    </div>
   )
 }

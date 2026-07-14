@@ -8,6 +8,7 @@ import { GalleryLightbox } from '../sections/GalleryLightbox'
 import { GallerySection } from '../sections/GallerySection'
 import { HeroSection } from '../sections/HeroSection'
 import { LoveStorySection } from '../sections/LoveStorySection'
+import { MessagesSection } from '../sections/MessagesSection'
 import { NavBar } from '../sections/NavBar'
 import { SiteFooter } from '../sections/SiteFooter'
 import { BackToTopButton } from './BackToTopButton'
@@ -37,6 +38,7 @@ export function WeddingSite() {
         <GallerySection images={gallery} onImageClick={setLightboxIndex} />
         <LoveStorySection />
         <ContactSection />
+        <MessagesSection />
       </main>
 
       <SiteFooter coupleNames={content?.coupleNames} weddingDate={content?.weddingDate} />

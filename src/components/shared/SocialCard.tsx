@@ -11,7 +11,7 @@ export function SocialCard() {
   ] as const
 
   return (
-    <Card>
+    <Card className='mt-4'>
       <CardContent className="flex items-center justify-between gap-3">
         <p className="text-xs font-medium uppercase tracking-wide text-black">Follow Along</p>
         <div className="flex items-center gap-2">
